@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="group hover:border-white hover:shadow-inner rounded-md border-neutral-600 border-2 p-2 duration-100 cursor-pointer flex justify-center select-none"
+	class="group hover:border-white hover:shadow-inner rounded-md border-neutral-700 border-2 p-2 duration-100 cursor-pointer flex justify-center select-none"
     style={`background-color:${color}`}
 	role="button" 
 	tabindex="0"
@@ -13,7 +13,7 @@
 	on:mouseenter={()=>onHover()}
 >
 	<p
-		class="group-hover:text-white text-center font-semibold duration-100 text-neutral-600 max-w-24"
+		class="group-hover:text-white text-center font-semibold duration-100 text-neutral-700 max-w-24"
 	>
 		{title}
 	</p>

@@ -9,5 +9,5 @@
     <VerticalArrow {showArrow}/>
     <VerticalArrow {showArrow}/>
 </div>
-<div class=" w-[67.25%] h-[2px] bg-neutral-600 mx-auto"></div>
+<div class=" w-[67.25%] h-[2px] bg-neutral-700 mx-auto"></div>
 

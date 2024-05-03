@@ -9,7 +9,7 @@
 <h2>Visual</h2>
 <div class="mx-auto max-w-xl">
 	<div class="flex flex-col justify-center mx-4 max-2xl:text-sm">
-		<p class="text-center text-neutral-600 font-semibold hover:text-white duration-150 cursor-pointer">Output</p>
+		<p class="text-center text-neutral-700 font-semibold hover:text-white duration-150 cursor-pointer">Output</p>
 		<div class="h-6"><VerticalArrow showArrow /></div>
 		<Element title="Softmax" color="#86efac" onHover={()=>focus.set({
 			...$focus,
@@ -27,7 +27,7 @@
 		  })}>
 			<Element title="Add & Norm" color="#fde047" onHover={()=>focus.set({
 				name: 'block',
-				linesHighlighted:[7,8,11,12]
+				linesHighlighted:[8,12]
 			  })} />
 			<div class="h-2"><VerticalArrow /></div>
 			<Element title="Feed Forward" color="#7dd3fc" onHover={()=>focus.set({
@@ -37,7 +37,7 @@
 			<div class="h-6"><VerticalArrow showArrow /></div>
 			<Element title="Add & Norm" color="#fde047" onHover={()=>focus.set({
 				name: 'block',
-				linesHighlighted:[7,8,11,12]
+				linesHighlighted:[7,11]
 			  })} />
 			<div class="h-2"><VerticalArrow /></div>
 			<Element title="Multihead-Attention" color="#fdba74" onHover={()=>focus.set({
@@ -57,7 +57,7 @@
 			name: 'embedding',
 		  })}/>
 		<div class="h-6"><VerticalArrow showArrow /></div>
-		<p class="text-center text-neutral-600 font-semibold hover:text-white duration-150 cursor-pointer">Input</p>
+		<p class="text-center text-neutral-700 font-semibold hover:text-white duration-150 cursor-pointer">Input</p>
 	</div>
 </div>
 

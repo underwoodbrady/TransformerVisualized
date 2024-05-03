@@ -1,35 +1,44 @@
-<header class="border-b-2 border-black bg-neutral-300 px-4  py-1">
+<script>
+	import ControlButtons from './ControlButtons.svelte';
+
+	let isPlaying = false;
+	let timestep = 0;
+	let maxTimestep = 12;
+	let minTimestep = 0;
+</script>
+
+<header class="border-b-2 border-black bg-neutral-300 px-4 py-1">
 	<nav>
-		<ul class="flex justify-between  items-center">
+		<ul class="flex justify-between items-center">
 			<li>
 				<h3>Transformers Visualized</h3>
 			</li>
 			<li>
 				<p>Model:</p>
-				<select name = "models" class="border-black border">
-					<option value="volvo">Bigram LM</option>
-					<option value="saab">Original Transformer</option>
-					<option value="mercedes">Modern Transformer</option>
-					<option value="audi">Grok (coming soon)</option>
-					<option value="audi">llama (coming soon)</option>
+				<select name="models" class="border-black border">
+					<option value="bigram">Bigram LM</option>
+					<option value="og">Original Transformer</option>
+					<option value="transformer">Updated Transformer</option>
+					<option value="mamba">Mamba</option>
 				</select>
-			</li>
-			<li>
-				<p>Parameters:</p>
-				<button class="bg-white w-full border-black border">Edit</button>
 			</li>
 			<li>
 				<p>Timestep:</p>
 				<div class="flex">
-
-					<button class="font-bold">{'<'}</button>
-					<input class="w-8" placeholder="1" value="1"/>
-					<button class="font-bold">{'>'}</button>
+					<ControlButtons
+						setTimestep={(t)=>{timestep=t}}
+						increaseTimestep={() => {timestep<maxTimestep && timestep++}}
+						decreaseTimestep={() => {timestep>minTimestep && timestep--}}
+						playAnimation={() => {isPlaying = true}}
+						stopAnimation={() => {isPlaying = false}}
+						{timestep}
+						{isPlaying}
+					/>
 				</div>
 			</li>
 			<li>
-				<a href="https://github.com">
-				<img src="/git.png" alt="Github Logo" class="h-5">
+				<a href="https://github.com/underwoodbrady/TransformerVisualized" target="_blank">
+					<img src="/git.png" alt="Github Logo" class="h-6" />
 				</a>
 			</li>
 		</ul>
