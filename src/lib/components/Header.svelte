@@ -1,10 +1,24 @@
-<script>
+<script lang="ts">
 	import ControlButtons from './ControlButtons.svelte';
 
 	let isPlaying = false;
 	let timestep = 0;
 	let maxTimestep = 12;
 	let minTimestep = 0;
+	let animSpeed = 2000;
+
+	let t: ReturnType<typeof setInterval>;
+	function playAnimation() {
+		t = setInterval(() => {
+			if (timestep < maxTimestep) timestep++;
+		}, animSpeed);
+	}
+
+	function stopAnimation() {
+		clearInterval(t);
+	}
+
+	$: isPlaying ? playAnimation() : stopAnimation();
 </script>
 
 <header class="border-b-2 border-black bg-neutral-300 px-4 py-1">
@@ -26,13 +40,26 @@
 				<p>Timestep:</p>
 				<div class="flex">
 					<ControlButtons
-						setTimestep={(t)=>{timestep=t}}
-						increaseTimestep={() => {timestep<maxTimestep && timestep++}}
-						decreaseTimestep={() => {timestep>minTimestep && timestep--}}
-						playAnimation={() => {isPlaying = true}}
-						stopAnimation={() => {isPlaying = false}}
+						increaseTimestep={() => {
+							timestep < maxTimestep && timestep++;
+						}}
+						decreaseTimestep={() => {
+							timestep > minTimestep && timestep--;
+						}}
+						playAnimation={() => {
+							isPlaying = true;
+						}}
+						pauseAnimation={() => {
+							isPlaying = false;
+						}}
+						stopAnimation={() => {
+							isPlaying = false;
+							timestep = 0;
+						}}
 						{timestep}
 						{isPlaying}
+						{minTimestep}
+						{maxTimestep}
 					/>
 				</div>
 			</li>
