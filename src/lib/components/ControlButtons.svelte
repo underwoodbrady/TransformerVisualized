@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { beforeUpdate } from "svelte";
-
 	export let increaseTimestep: () => void;
 	export let decreaseTimestep: () => void;
 	export let playAnimation: () => void;
@@ -10,11 +8,6 @@
 	export let timestep: number = 0;
     export let minTimestep:number;
     export let maxTimestep:number;
-
-
-    beforeUpdate(()=>{
-        console.log(timestep, minTimestep, maxTimestep)
-    })
 </script>
 
 <button
@@ -57,5 +50,6 @@
 	/* Firefox */
 	input[type='number'] {
 		-moz-appearance: textfield;
+		appearance: textfield;
 	}
 </style>
